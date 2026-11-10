@@ -1,0 +1,45 @@
+﻿<Window x:Class="ShoeStore_ChebodaevKirill.AddEditOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавление/редактирование заказа" Height="500" Width="600"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#7FFF00" Height="60" Margin="5">
+            <TextBlock Text="Управление заказом" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" Margin="10">
+            <Grid Width="450" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Артикул заказа" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="TbOrderNumber" Height="25" Margin="5" PreviewTextInput="TbOrderNumber_PreviewTextInput"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Статус заказа" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+                <ComboBox Grid.Row="1" Grid.Column="1" x:Name="CmbStatus" Height="25" Margin="5" DisplayMemberPath="StatusName" SelectedValuePath="StatusID"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Адрес пункта выдачи" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+                <ComboBox Grid.Row="2" Grid.Column="1" x:Name="CmbPickupPoint" Height="25" Margin="5" DisplayMemberPath="Street" SelectedValuePath="PointID"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Дата заказа" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+                <DatePicker Grid.Row="3" Grid.Column="1" x:Name="DpOrderDate" Height="25" Margin="5"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Дата доставки" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+                <DatePicker Grid.Row="4" Grid.Column="1" x:Name="DpDeliveryDate" Height="25" Margin="5"/>
+            </Grid>
+        </ScrollViewer>
+
+        <Button Grid.Row="2" Content="Сохранить данные" HorizontalAlignment="Center" Width="200" Height="40" Margin="0,10,0,20" Background="#00FA9A" Click="SaveBtn_Click"/>
+    </Grid>
+</Window>
